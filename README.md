@@ -1,0 +1,3 @@
+# BlazeDS Turnkey Feathers UI Samples
+
+The [Adobe BlazeDS Turnkey bundle](https://github.com/joshtynjala/blazeds-turnkey-archive) includes a number of sample frontend applications created with [Apache Flex](https://flex.apache.org/), meant to run on Adobe Flash Player. The samples contained in this repository are designed to replace the original Flex apps with new versions built with the [Haxe](https://haxe.org/) programming language, and the [Feathers UI](https://feathersui.com/) library.
