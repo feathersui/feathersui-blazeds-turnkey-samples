@@ -18,4 +18,8 @@ openfl build html5
 
 3. Copy the compiled files from this project's _bin/html5/bin_ directory into _webapps/samples/testdrive-datapush_.
 
-4. Open a web browser and load _http://localhost:8080/samples/testdrive-datapush_ to see the sample.
+4. Open a web browser and load _http://localhost:8080/samples/testdrive-datapush/startfeed.jsp_ to start the feed.
+
+5. Then, load _http://localhost:8080/samples/testdrive-datapush_ to see the sample.
+
+6. Finally, load _http://localhost:8080/samples/testdrive-datapush/stopfeed.jsp_ to stop the feed.
