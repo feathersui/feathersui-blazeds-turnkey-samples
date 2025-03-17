@@ -7,6 +7,77 @@ on:
       - master
 
 jobs:
+  samples-misc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.2.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib install feathersui-rpc-services --quiet
+          haxelib install feathersui-formatters --quiet
+      - name: Build runtimeconfig-messaging
+        working-directory: runtimeconfig-messaging
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build runtimeconfig-remoting
+        working-directory: runtimeconfig-remoting
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-101
+        working-directory: testdrive-101
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-chat
+        working-directory: testdrive-chat
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-datapush
+        working-directory: testdrive-datapush
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-httpservice
+        working-directory: testdrive-httpservice
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-remoteobject
+        working-directory: testdrive-remoteobject
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build testdrive-update
+        working-directory: testdrive-update
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+
   samples-air:
     runs-on: windows-latest
     steps:
@@ -27,8 +98,8 @@ jobs:
           haxelib install lime --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
-          haxelib install amfio --quiet
           haxelib install feathersui-rpc-services --quiet
+          haxelib install feathersui-formatters --quiet
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Build runtimeconfig-messaging
         working-directory: runtimeconfig-messaging
@@ -45,7 +116,7 @@ jobs:
       - name: Build testdrive-chat
         working-directory: testdrive-chat
         run: |
-          mvn clean install
+          haxelib run openfl build air
       - name: Build testdrive-datapush
         working-directory: testdrive-datapush
         run: |
